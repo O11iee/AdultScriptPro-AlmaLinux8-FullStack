@@ -91,10 +91,21 @@ dnf install -y sphinx
 systemctl start searchd
 systemctl enable searchd
 
+# Download ffmpeg and ffprobe
+cd /usr/local/bin
+wget https://raw.githubusercontent.com/O11iee/AdultScriptPro-AlmaLinux8-FullStack/main/ffmpeg
+wget https://raw.githubusercontent.com/O11iee/AdultScriptPro-AlmaLinux8-FullStack/main/ffprobe
+
+# Make them executable
+chmod +x /usr/local/bin/ffmpeg
+chmod +x /usr/local/bin/ffprobe
+
 # Display installed versions
 nginx -v
 mariadb --version
 php -v
 searchd --status
+ffmpeg -version
+ffprobe -version
 
 echo "All requested packages and optimizations have been applied."
